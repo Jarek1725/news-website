@@ -55,8 +55,15 @@
         <v-app-bar flat class="transparent">
             <v-container>
                 <v-row align="center">
-                    <v-btn tile small text class="body-2">
-                        link
+                    <v-btn
+                        tile text 
+                        small 
+                        class="body-2"
+                        v-for="link in links"
+                        :key="link.text"
+                        :to="link.to"
+                    >
+                        {{link.text}}
                     </v-btn>
 
                     <v-spacer></v-spacer>
@@ -89,6 +96,10 @@
 </template>
 
 <script>
+import {
+    mapGetters,
+} from 'vuex';
+
 export default {
     name: "CoreAppBar",
     data() {
@@ -101,9 +112,12 @@ export default {
             search: "",
         }
     },
+    computed: {
+        ...mapGetters(['links']),
+    },
     methods: {
         searchNow() {
-            console.log(this.search)
+            console.log(this.search);
         }
     }
 }
