@@ -61,9 +61,26 @@
 
                     <v-spacer></v-spacer>
 
-                    <v-btn icon>
-                        <v-icon>mdi-magnify</v-icon>
-                    </v-btn>
+                    <v-menu tile :close-on-content-click="false" offset-y left nudge-bottom="6">
+                        <template v-slot:activator="{on}">
+                            <v-btn icon v-on="on">
+                                <v-icon>mdi-magnify</v-icon>
+                            </v-btn>
+                        </template>
+                        <base-card class="pa-5">
+                            <v-text-field
+                                dense
+                                autofocus
+                                tile
+                                outlined
+                                hide-details
+                                label="Search..."
+                                clearable
+                                v-model="search"
+                                @keyup.enter="searchNow()"
+                            />
+                        </base-card>
+                    </v-menu>
                 </v-row>
             </v-container>
         </v-app-bar>
@@ -80,7 +97,13 @@ export default {
                 {icon: "facebook", to: "#facebook/example-link"},
                 {icon: "twitter", to: "#twitter/example-link"},
                 {icon: "youtube", to: "#youtube/example-link"}
-            ]
+            ],
+            search: "",
+        }
+    },
+    methods: {
+        searchNow() {
+            console.log(this.search)
         }
     }
 }
