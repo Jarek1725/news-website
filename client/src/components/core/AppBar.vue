@@ -1,0 +1,135 @@
+<!-- src/components/core/AppBar -->
+<template>
+    <div>
+        <section class="grey darken-4 white--text">
+            <v-container class="py-0">
+                <v-row class="ma-0" align="center">
+                    <v-btn
+                        tile
+                        class="elevation-0 body-2 font-weight-bold mr-3"
+                        color="primary"
+                    >
+                        Top news
+                    </v-btn>
+
+                    <div>
+                        <v-btn icon x-small dark>
+                            <v-icon small>mdi-chevron-left</v-icon>
+                        </v-btn>
+                        <v-btn icon x-small dark>
+                            <v-icon small>mdi-chevron-right</v-icon>
+                        </v-btn>
+
+                        <span class="caption ml-1">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        </span>
+                    </div>
+
+                    <v-spacer></v-spacer>
+
+                    <v-btn
+                        small icon
+                        dark
+                        v-for="link in social"
+                        :key="link.icon"
+                        :to="link.to"
+                        class="ml-1"
+                    >
+                        <v-icon small>mdi-{{link.icon}}</v-icon>
+                    </v-btn>
+                </v-row>
+            </v-container>
+        </section>
+
+        <header class="my-10">
+            <v-container class="py-0">
+                <v-row class="ma-0" justify="space-between" align="center">
+                    <h1>Logo</h1>
+
+                    <img class="hidden-sm-and-down" src="@/assets/ad.png" width="728" height="90"/>
+                </v-row>
+            </v-container>
+        </header>
+
+        <v-divider></v-divider>
+        <v-app-bar flat class="transparent">
+            <v-container>
+                <v-row align="center">
+                    <v-btn
+                        tile text 
+                        small 
+                        class="body-2 hidden-sm-and-down"
+                        v-for="link in links"
+                        :key="link.text"
+                        :to="link.to"
+                    >
+                        {{link.text}}
+                    </v-btn>
+
+                    <v-app-bar-nav-icon
+                        class="hidden-md-and-up"
+                        @click="toggleDrawer()"
+                    />
+
+                    <v-spacer></v-spacer>
+
+                    <v-menu tile :close-on-content-click="false" offset-y left nudge-bottom="6">
+                        <template v-slot:activator="{on}">
+                            <v-btn icon v-on="on">
+                                <v-icon>mdi-magnify</v-icon>
+                            </v-btn>
+                        </template>
+                        <base-card class="pa-5">
+                            <v-text-field
+                                dense
+                                autofocus
+                                tile
+                                outlined
+                                hide-details
+                                label="Search..."
+                                clearable
+                                v-model="search"
+                                @keyup.enter="searchNow()"
+                            />
+                        </base-card>
+                    </v-menu>
+                </v-row>
+            </v-container>
+        </v-app-bar>
+        <v-divider></v-divider>
+    </div>
+</template>
+
+<script>
+import {
+    mapGetters,
+    mapMutations
+} from 'vuex';
+
+export default {
+    name: "CoreAppBar",
+    data() {
+        return {
+            social: [
+                {icon: "facebook", to: "#facebook/example-link"},
+                {icon: "twitter", to: "#twitter/example-link"},
+                {icon: "youtube", to: "#youtube/example-link"}
+            ],
+            search: "",
+        }
+    },
+    computed: {
+        ...mapGetters(['links']),
+    },
+    methods: {
+        ...mapMutations(['toggleDrawer']),
+        searchNow() {
+            console.log(this.search);
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>
