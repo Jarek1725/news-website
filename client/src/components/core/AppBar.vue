@@ -46,7 +46,7 @@
                 <v-row class="ma-0" justify="space-between" align="center">
                     <h1>Logo</h1>
 
-                    <img class="d-block" src="@/assets/ad.png" width="728" height="90"/>
+                    <img class="hidden-sm-and-down" src="@/assets/ad.png" width="728" height="90"/>
                 </v-row>
             </v-container>
         </header>
@@ -58,13 +58,18 @@
                     <v-btn
                         tile text 
                         small 
-                        class="body-2"
+                        class="body-2 hidden-sm-and-down"
                         v-for="link in links"
                         :key="link.text"
                         :to="link.to"
                     >
                         {{link.text}}
                     </v-btn>
+
+                    <v-app-bar-nav-icon
+                        class="hidden-md-and-up"
+                        @click="toggleDrawer()"
+                    />
 
                     <v-spacer></v-spacer>
 
@@ -98,6 +103,7 @@
 <script>
 import {
     mapGetters,
+    mapMutations
 } from 'vuex';
 
 export default {
@@ -116,6 +122,7 @@ export default {
         ...mapGetters(['links']),
     },
     methods: {
+        ...mapMutations(['toggleDrawer']),
         searchNow() {
             console.log(this.search);
         }
