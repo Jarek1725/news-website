@@ -55,15 +55,39 @@
         <v-app-bar flat class="transparent">
             <v-container>
                 <v-row align="center">
-                    <v-btn tile small text class="body-2">
-                        link
+                    <v-btn
+                        tile text 
+                        small 
+                        class="body-2"
+                        v-for="link in links"
+                        :key="link.text"
+                        :to="link.to"
+                    >
+                        {{link.text}}
                     </v-btn>
 
                     <v-spacer></v-spacer>
 
-                    <v-btn icon>
-                        <v-icon>mdi-magnify</v-icon>
-                    </v-btn>
+                    <v-menu tile :close-on-content-click="false" offset-y left nudge-bottom="6">
+                        <template v-slot:activator="{on}">
+                            <v-btn icon v-on="on">
+                                <v-icon>mdi-magnify</v-icon>
+                            </v-btn>
+                        </template>
+                        <base-card class="pa-5">
+                            <v-text-field
+                                dense
+                                autofocus
+                                tile
+                                outlined
+                                hide-details
+                                label="Search..."
+                                clearable
+                                v-model="search"
+                                @keyup.enter="searchNow()"
+                            />
+                        </base-card>
+                    </v-menu>
                 </v-row>
             </v-container>
         </v-app-bar>
@@ -72,6 +96,10 @@
 </template>
 
 <script>
+import {
+    mapGetters,
+} from 'vuex';
+
 export default {
     name: "CoreAppBar",
     data() {
@@ -80,7 +108,16 @@ export default {
                 {icon: "facebook", to: "#facebook/example-link"},
                 {icon: "twitter", to: "#twitter/example-link"},
                 {icon: "youtube", to: "#youtube/example-link"}
-            ]
+            ],
+            search: "",
+        }
+    },
+    computed: {
+        ...mapGetters(['links']),
+    },
+    methods: {
+        searchNow() {
+            console.log(this.search);
         }
     }
 }

@@ -1,6 +1,11 @@
 <template>
-    <v-card>
-        base card
+    <v-card
+        flat
+        tile
+        v-bind="$attrs"
+        v-on="$listeners"
+    >
+        <slot/>
     </v-card>
 </template>
 
