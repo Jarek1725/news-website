@@ -8,7 +8,7 @@
                     <router-view name="feeds"></router-view>
                 </v-col>
 
-                <v-col cols="12" class="pr-md-0" :md="3">
+                <v-col cols="12" class="pr-md-0 pl-md-0" :md="3">
                     <core-widgets/>
                 </v-col>
             </v-row>

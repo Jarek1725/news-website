@@ -10,7 +10,7 @@ const routes = [
     components: {
       default: () => import('@/components/home/Hero'),
       feeds: () => import('@/components/home/Feeds')
-    }
+    },
   },
 ]
 
