@@ -79,7 +79,7 @@
                                 <v-icon>mdi-magnify</v-icon>
                             </v-btn>
                         </template>
-                        <base-card class="pa-5">
+                        <base-card>
                             <v-text-field
                                 dense
                                 autofocus

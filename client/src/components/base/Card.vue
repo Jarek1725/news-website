@@ -6,13 +6,15 @@
         v-on="$listeners"
     >
         <div
-            class="py-2 px-3 mb-4 grey darken-4 white--text body-2 font-weight-bold"
+            class="pa-3 grey darken-4 white--text text-uppercase body-2 font-weight-bold"
             v-if="hasHeaderSlot"
         >
             <slot name="header"/>
         </div>
 
-        <slot/>
+        <div class="pa-5">
+            <slot/>
+        </div>
     </v-card>
 </template>
 

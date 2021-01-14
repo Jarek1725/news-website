@@ -1,5 +1,5 @@
 <template>
-    <base-card class="pa-5 grey" :height="size">
+    <base-card class="grey" :height="size">
         this is contain feed
     </base-card>
 </template>
