@@ -25,10 +25,25 @@
             </v-row>
         </base-card>
 
-        <base-card :padding="false" class="mt-5">
+        <base-card :padding="false" class="mt-8">
             <template v-slot:header>
                 <div class="text-center">The latest posts</div>
             </template>
+
+            <v-row
+                class="ma-0 latest-post"
+                v-for="(post, i) in latestPosts"
+                :key="i"
+                align="space-between"
+            >
+                <v-col cols="4" class="pl-0">
+                    <v-img :src="post.hero"></v-img>
+                </v-col>
+                <v-col cols="8" class="pr-0 d-flex flex-column justify-space-between">
+                    <a href="#/link" class="body-1 font-weight-bold">{{post.title}}</a>
+                    <div class="grey--text caption">{{post.date}}</div>
+                </v-col>
+            </v-row>
         </base-card>
     </section>
 </template>
@@ -45,6 +60,11 @@ export default {
                 {text: "Messenger", icon: "facebook-messenger", to: "#/facebook.com/user/novvac", color: "#00B2FF"},
                 {text: "Telegram", icon: "telegram", to: "#/facebook.com/user/novvac", color: "#0088cc"},
                 {text: "Github", icon: "github", to: "#/facebook.com/user/novvac", color: "#333"},
+            ],
+            latestPosts: [
+                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021"},
+                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021"},
+                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021"},
             ]
         }
     }
@@ -52,5 +72,11 @@ export default {
 </script>
 
 <style>
-
+.latest-post a {
+    text-decoration: none;
+    color: black !important;
+}
+.latest-post a:hover {
+    text-decoration: underline;
+}
 </style>
