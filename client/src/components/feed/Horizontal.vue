@@ -4,11 +4,12 @@
             class="ma-0"
             align="space-between"
         >
-            <v-col cols="12" class="pl-0">
+            <v-col cols="4" class="pl-0">
                 <v-img :src="object.hero"></v-img>
-
-                <a href="#/link" class="body-1 font-weight-bold mt-3 d-block">{{object.title}}</a>
-                <div class="grey--text d-flex justify-space-between align-center mt-2">
+            </v-col>
+            <v-col cols="8" class="pr-0 d-flex flex-column justify-space-between">
+                <a href="#/link" class="body-1 font-weight-bold">{{object.title}}</a>
+                <div class="grey--text">
                     <span class="caption">{{object.date}}</span>
                     <v-chip label x-small color="primary" class="text-uppercase ml-3" v-if="object.genre">
                         {{object.genre}}
@@ -29,11 +30,11 @@ export default {
 </script>
 
 <style>
-.feed-vertical a {
+.feed-horizontal a {
     text-decoration: none;
     color: black !important;
 }
-.feed-vertical a:hover {
+.feed-horizontal a:hover {
     text-decoration: underline;
 }
 </style>

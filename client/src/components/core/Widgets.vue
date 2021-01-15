@@ -30,27 +30,23 @@
                 <div class="text-center">The latest posts</div>
             </template>
 
-            <v-row
-                class="ma-0 latest-post"
+            <feed-horizontal
                 v-for="(post, i) in latestPosts"
                 :key="i"
-                align="space-between"
-            >
-                <v-col cols="4" class="pl-0">
-                    <v-img :src="post.hero"></v-img>
-                </v-col>
-                <v-col cols="8" class="pr-0 d-flex flex-column justify-space-between">
-                    <a href="#/link" class="body-1 font-weight-bold">{{post.title}}</a>
-                    <div class="grey--text caption">{{post.date}}</div>
-                </v-col>
-            </v-row>
+                :object="post"
+            />
         </base-card>
     </section>
 </template>
 
 <script>
+import FeedHorizontal from '@/components/feed/Horizontal';
+
 export default {
     name: "CoreWidgets",
+    components: {
+        FeedHorizontal,
+    },
     data() {
         return {
             keepInTouch: [
@@ -62,9 +58,9 @@ export default {
                 {text: "Github", icon: "github", to: "#/facebook.com/user/novvac", color: "#333"},
             ],
             latestPosts: [
-                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021"},
-                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021"},
-                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021"},
+                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021", genre: 'category'},
+                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021", genre: 'other'},
+                {hero: "https://cdn.pixabay.com/photo/2020/12/17/14/07/leaves-5839550_1280.jpg", title: "How we can create better world?", date: "11 January, 2021", genre: "technology"},
             ]
         }
     }
@@ -72,11 +68,4 @@ export default {
 </script>
 
 <style>
-.latest-post a {
-    text-decoration: none;
-    color: black !important;
-}
-.latest-post a:hover {
-    text-decoration: underline;
-}
 </style>
