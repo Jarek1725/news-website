@@ -30,7 +30,7 @@
                 <div class="text-center">The latest posts</div>
             </template>
 
-            <feed-vertical
+            <feed-horizontal
                 v-for="(post, i) in latestPosts"
                 :key="i"
                 :object="post"
@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import FeedVertical from '@/components/feed/Vertical';
+import FeedHorizontal from '@/components/feed/Horizontal';
 
 export default {
     name: "CoreWidgets",
     components: {
-        FeedVertical,
+        FeedHorizontal,
     },
     data() {
         return {

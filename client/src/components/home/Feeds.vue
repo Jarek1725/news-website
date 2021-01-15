@@ -1,10 +1,11 @@
 <template>
     <section class="feeds">
-        <base-card>
+        <base-card :padding="false">
             <template v-slot:header>
                 latest articles
             </template>
-            here will be latest posts
+            
+            <feeds-layout :items="latestPosts"/>
         </base-card>
 
         <base-card class="mt-6">
@@ -17,8 +18,13 @@
 </template>
 
 <script>
+import FeedsLayout from '@/components/feed/Layout';
+
 export default {
     name: 'CoreFeeds',
+    components: {
+        FeedsLayout,
+    },
     data() {
         return {
             latestPosts: [
