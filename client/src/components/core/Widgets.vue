@@ -1,12 +1,34 @@
 <template>
     <section class="widgets">
-        <base-card class="grey lighten-3">
+        <base-card :padding="false">
             <template v-slot:header>
                 <div class="text-center">
                     keep in touch
                 </div>
             </template>
-            ;D
+            
+            <v-row class="ma-0">
+                <v-col cols="12" class="px-0">
+                    <v-btn
+                        v-for="link in keepInTouch"
+                        :key="link.text"
+                        :to="link.to"
+                        text
+                        tile
+                        style="width: 50%"
+                        class="py-5 my-1 secondary--text"
+                    >
+                        <v-icon :color="link.color">mdi-{{link.icon}}</v-icon>
+                        <span class="ml-2 body-2">{{link.text}}</span>
+                    </v-btn>
+                </v-col>
+            </v-row>
+        </base-card>
+
+        <base-card :padding="false" class="mt-5">
+            <template v-slot:header>
+                <div class="text-center">The latest posts</div>
+            </template>
         </base-card>
     </section>
 </template>
@@ -14,6 +36,18 @@
 <script>
 export default {
     name: "CoreWidgets",
+    data() {
+        return {
+            keepInTouch: [
+                {text: "Facebook", icon: "facebook", to: "#/facebook.com/user/novvac", color: "#4267B2"},
+                {text: "Youtube", icon: "youtube", to: "#/youtube.com/user/novvac", color: "#ff0000"},
+                {text: "Twitter", icon: "twitter", to: "#/facebook.com/user/novvac", color: "#1DA1F2"},
+                {text: "Messenger", icon: "facebook-messenger", to: "#/facebook.com/user/novvac", color: "#00B2FF"},
+                {text: "Telegram", icon: "telegram", to: "#/facebook.com/user/novvac", color: "#0088cc"},
+                {text: "Github", icon: "github", to: "#/facebook.com/user/novvac", color: "#333"},
+            ]
+        }
+    }
 }
 </script>
 
