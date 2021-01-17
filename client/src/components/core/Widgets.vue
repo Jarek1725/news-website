@@ -25,7 +25,9 @@
             </v-row>
         </base-card>
 
-        <base-card :padding="false" class="mt-8">
+        <full-width-ad class="my-10" img="https://www.identecsolutions.com/wp-content/uploads/2017/04/Placeholder_image.png"/>
+
+        <base-card :padding="false">
             <template v-slot:header>
                 <div class="text-center">The latest posts</div>
             </template>
@@ -41,11 +43,13 @@
 
 <script>
 import FeedHorizontal from '@/components/feed/Horizontal';
+import FullWidthAd from '@/components/FullWidthAd';
 
 export default {
     name: "CoreWidgets",
     components: {
         FeedHorizontal,
+        FullWidthAd,
     },
     data() {
         return {
