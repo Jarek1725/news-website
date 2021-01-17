@@ -8,8 +8,9 @@
 
         <v-col cols="12" :sm="6" class="px-sm-0">
             <feed-horizontal :object="items[1]"/>
+            <feed-horizontal :object="items[2]"/>
             <feed-horizontal :object="items[1]"/>
-            <feed-horizontal :object="items[1]"/>
+            <feed-horizontal :object="items[0]"/>
         </v-col>
     </v-row>
 </template>

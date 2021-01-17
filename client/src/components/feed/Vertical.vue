@@ -8,11 +8,18 @@
                 <v-img :src="object.hero"></v-img>
 
                 <a href="#/link" class="body-1 font-weight-bold mt-3 d-block">{{object.title}}</a>
-                <div class="grey--text d-flex justify-space-between align-center mt-2">
-                    <span class="caption">{{object.date}}</span>
+                <div class="grey--text d-flex justify-space-between align-center mt-2 caption">
+                    <div>
+                        <span class="text-capitalize">{{object.author}}</span>
+                        <span class="mx-3">•</span>
+                        <span>{{object.date}}</span>
+                    </div>
                     <v-chip label x-small color="primary" class="text-uppercase ml-3" v-if="object.genre">
                         {{object.genre}}
                     </v-chip>
+                </div>
+                <div class="body-2 mt-3">
+                    {{truncatedDescription}}
                 </div>
             </v-col>
         </v-row>
@@ -24,6 +31,14 @@ export default {
     name: "FeedVertical",
     props: {
         object: Object,
+    },
+    computed: {
+        truncatedDescription() {
+            if(this.object.description.length < 150)
+                return this.object.description;
+            
+            return this.object.description.slice(0,150) + "...";
+        }
     }
 }
 </script>
