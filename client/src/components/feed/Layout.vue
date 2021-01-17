@@ -1,16 +1,19 @@
 <template>
     <v-row class="ma-0">
-        <v-col cols="12" :sm="6" class="pl-sm-0">
-            <base-card :padding="false">
-                <feed-vertical :object="items[0]"/>
-            </base-card>
-        </v-col>
-
-        <v-col cols="12" :sm="6" class="px-sm-0">
-            <feed-horizontal :object="items[1]"/>
-            <feed-horizontal :object="items[2]"/>
-            <feed-horizontal :object="items[1]"/>
-            <feed-horizontal :object="items[0]"/>
+        <v-col
+            v-for="(col, count) in layout"
+            :key="col"
+            cols="12"
+            :md="12 / layout.length"
+            :class="[colPadding(count, layout.length)]"
+        >
+            <div
+                v-for="(type, x) in col"
+                :key="type"
+            >
+                <feed-vertical v-if="type===0" :object="items[count][x]"/>
+                <feed-horizontal v-else-if="type===1" :object="items[count][x]"/>
+            </div>
         </v-col>
     </v-row>
 </template>
@@ -26,7 +29,19 @@ export default {
         FeedVertical,
     },
     props: {
-        items: Array,
+        layout: Array,
+        items: Array
+    },
+    methods: {
+        colPadding(count, max) {
+            let customClass = [];
+            if(count === 0)
+                customClass.push('pl-md-0');
+            if(count === max-1)
+                customClass.push('pr-md-0');
+
+            return customClass;
+        }
     }
 }
 </script>

@@ -18,7 +18,7 @@
                         {{object.genre}}
                     </v-chip>
                 </div>
-                <div class="body-2 mt-3">
+                <div class="body-2 mt-3 d-none d-md-block">
                     {{truncatedDescription}}
                 </div>
             </v-col>
