@@ -25,7 +25,7 @@
             </v-row>
         </base-card>
 
-        <full-width-ad class="my-10" img="https://www.identecsolutions.com/wp-content/uploads/2017/04/Placeholder_image.png"/>
+        <full-width-ad class="my-10" link="/#ad" img="https://www.identecsolutions.com/wp-content/uploads/2017/04/Placeholder_image.png"/>
 
         <base-card :padding="false">
             <template v-slot:header>
