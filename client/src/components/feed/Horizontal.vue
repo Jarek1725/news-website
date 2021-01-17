@@ -34,6 +34,9 @@ export default {
     text-decoration: none;
     color: black !important;
 }
+.feed-horizontal.dark a {
+    color: white !important;
+}
 .feed-horizontal a:hover {
     text-decoration: underline;
 }

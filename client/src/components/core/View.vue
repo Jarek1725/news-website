@@ -27,7 +27,8 @@ export default {
     data() {
         return {
             stickyOptions: {
-                topSpacing: 16
+                topSpacing: 16,
+                bottomSpacing: 16,
             }
         }
     }
