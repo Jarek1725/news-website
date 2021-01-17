@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify';
 import './plugins/base';
+import VueStickyDirective from '@renatodeleao/vue-sticky-directive'
 
 Vue.config.productionTip = false
+Vue.use(VueStickyDirective);
 
 new Vue({
   router,

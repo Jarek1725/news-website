@@ -29,7 +29,7 @@
 
         <base-card :padding="false">
             <template v-slot:header>
-                <div class="text-center">The latest posts</div>
+                <div class="text-center">The popular posts</div>
             </template>
 
             <feed-horizontal
