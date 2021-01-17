@@ -21,7 +21,7 @@
                 <div :class="['mt-3', 'mb-1', 'text-truncate', getTitleSize]">{{object.title}}</div>
                 <div class="caption">
                     <span class="text-capitalize">{{object.author}}</span>
-                    <span class="mx-4">|</span>
+                    <span class="mx-4">•</span>
                     <span>{{object.date}}</span>
                 </div>
             </v-col>
