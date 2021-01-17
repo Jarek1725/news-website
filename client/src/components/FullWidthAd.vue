@@ -1,5 +1,5 @@
 <template>
-    <a href="/#?ad" class="d-block">
+    <a :href="link" class="d-block">
         <v-img alt="ad here" class="d-block" width="100%" contain :src="img"/>
     </a>
 </template>
@@ -9,6 +9,7 @@ export default {
     name: "FullWidthAd",
     props: {
         img: String,
+        link: String,
     }
 }
 </script>
