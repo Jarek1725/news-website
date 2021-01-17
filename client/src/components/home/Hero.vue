@@ -1,12 +1,12 @@
 <template>
     <v-row class="ma-0" align="center">
         <v-col cols="12" class="pl-md-0" :md="8">
-            <feed-contain size="524" :object="items[0]"/>
+            <feed-contain :size="524" :object="items[0]"/>
         </v-col>
 
         <v-col cols="12" :md="4" class="pr-md-0 pl-md-0">
-            <feed-contain to="#link2" size="256" :object="items[1]"/>
-            <feed-contain to="#link3" class="mt-3" size="256" :object="items[2]"/>
+            <feed-contain to="#link2" :size="256" :object="items[1]"/>
+            <feed-contain to="#link3" class="mt-3" :size="256" :object="items[2]"/>
         </v-col>
     </v-row>
 </template>
