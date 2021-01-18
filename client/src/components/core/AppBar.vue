@@ -30,7 +30,7 @@
                     <v-btn
                         small icon
                         dark
-                        v-for="link in social"
+                        v-for="link in socialMedia"
                         :key="link.icon"
                         :to="link.to"
                         class="ml-1"
@@ -102,6 +102,7 @@
 
 <script>
 import {
+    mapState,
     mapGetters,
     mapMutations
 } from 'vuex';
@@ -110,16 +111,12 @@ export default {
     name: "CoreAppBar",
     data() {
         return {
-            social: [
-                {icon: "facebook", to: "#facebook/example-link"},
-                {icon: "twitter", to: "#twitter/example-link"},
-                {icon: "youtube", to: "#youtube/example-link"}
-            ],
             search: "",
         }
     },
     computed: {
         ...mapGetters(['links']),
+        ...mapState(['socialMedia']),
     },
     methods: {
         ...mapMutations(['toggleDrawer']),
