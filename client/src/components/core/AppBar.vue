@@ -1,7 +1,7 @@
 <!-- src/components/core/AppBar -->
 <template>
     <div>
-        <section class="grey darken-4 white--text">
+        <section class="grey darken-4 white--text d-none d-md-block">
             <v-container class="py-0">
                 <v-row class="ma-0" align="center">
                     <v-btn
